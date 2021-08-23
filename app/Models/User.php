@@ -41,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+    protected $with = [ 'cvFile'];
+
+    public function cvFile(){
+        return $this->hasOne(CvFile::class);
+    }
+
+    public function expertise(){
+        return $this->hasOne(Expertise::class);
+    }
 }

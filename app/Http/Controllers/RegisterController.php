@@ -46,8 +46,8 @@ class RegisterController extends Controller
         // create and return data
         $user = User::create($input);
         $accessToken = $user->createToken('authToken')->accessToken;
+        return response(['user' => new UserResource($user), 'token' => $accessToken, 'success' => true, 'message' => 'Registered successfully']);
 
-        return response(['user' => new UserResource($user), 'token' => $accessToken]);
     }
 
 }
