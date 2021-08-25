@@ -12,4 +12,8 @@ class Expertise extends Model
     public function jobs(){
         return $this->hasMany(Job::class);
     }
+
+    public function users(){
+        return $this->hasMany(User::class);
+    }
 }

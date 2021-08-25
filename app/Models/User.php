@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'experties_id',
     ];
 
     /**
@@ -44,13 +45,13 @@ class User extends Authenticatable
 
 
 
-    protected $with = [ 'cvFile'];
+    protected $with = [ 'cvFile', 'expertise'];
 
     public function cvFile(){
         return $this->hasOne(CvFile::class);
     }
 
     public function expertise(){
-        return $this->hasOne(Expertise::class);
+        return $this->belongsTo(Expertise::class);
     }
 }

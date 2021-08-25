@@ -14,13 +14,5 @@ class UserDataController extends Controller
         return  new UserResource($user);
     }
 
-    public function selectExpertise(Request $request){
-        $request->validate([
-            'expertise_id' => 'required'
-        ]);
 
-        $user = Auth::user();
-
-
-    }
 }

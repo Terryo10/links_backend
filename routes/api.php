@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ExpertiseController;
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PDFController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +29,7 @@ Route::post('login', [LoginController::class, 'login']);
 
 Route::get('get_user_data',[UserDataController::class,'userData'] )->middleware('auth:api');
 Route::resource('cv_file', PDFController::class)->middleware('auth:api');
+Route::get('get_expertise',[ExpertiseController::class,'getExpertiseList'])->middleware('auth:api');
+Route::post('update_user_expertise',[ExpertiseController::class ,'selectExpertise'])->middleware('auth:api');
+Route::get('get_jobs', [JobsController::class,'getJobs'])->middleware('auth:api');
+
