@@ -35,4 +35,5 @@ Route::post('update_user_expertise',[ExpertiseController::class ,'selectExpertis
 Route::get('get_jobs', [JobsController::class,'getJobs'])->middleware('auth:api');
 Route::post('make_payment', [SubscriptionsController::class, 'makeSubscription'])->middleware('auth:api');
 Route::get('confirm_payment/{id}', [SubscriptionsController::class, 'checkPayment'])->middleware('auth:api');
+Route::get('get_price',[SubscriptionsController::class,'getPriceControl']);
 

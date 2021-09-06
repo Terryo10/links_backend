@@ -12,6 +12,17 @@ use Paynow\Payments\Paynow;
 
 class SubscriptionsController extends Controller
 {
+
+    public function getPriceControl(){
+        $price_control = PriceControl::all();
+        $activePrice = $price_control[0];
+
+        return response()->json([
+            'success' => true,
+            'price' =>$activePrice,
+
+        ]);
+    }
     public function makeSubscription(Request $request){
         $user = Auth::user();
         $request->validate([
