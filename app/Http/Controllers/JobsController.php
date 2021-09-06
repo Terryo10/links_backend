@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\JobsResource;
 use App\Models\Expertise;
 use App\Models\Job;
 use Illuminate\Http\Request;
@@ -16,12 +17,12 @@ class JobsController extends Controller
         try{
             $user = Auth::user();
 
-            $expertise = Job::where('expertises_id', '=', $user->experties_id)->get();
+            $jobs= Job::where('expertises_id', '=', $user->experties_id)->get();
 
-
+            $jobsCollection = JobsResource::collection($jobs);
             return response()->json([
                 'success' => true,
-                'jobs' => $expertise,
+                'jobs' => $jobsCollection,
             ]);
         }catch(Exception $exception){
             return response()->json([

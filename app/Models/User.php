@@ -54,4 +54,8 @@ class User extends Authenticatable
     public function expertise(){
         return $this->belongsTo(Expertise::class);
     }
+
+    public function subscription(){
+        return $this->hasOne(Subscriptions::class);
+    }
 }

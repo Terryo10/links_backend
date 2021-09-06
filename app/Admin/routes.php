@@ -16,6 +16,8 @@ Route::group([
     $router->resource('organisations', OrganisationController::class);
     $router->resource('jobs', JobsController::class);
     $router->resource('expertise', ExpertiseController::class);
+    $router->resource('price_controls', PriceController::class);
+
 
 
 

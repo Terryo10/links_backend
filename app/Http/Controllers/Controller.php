@@ -11,6 +11,9 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public  $integration_key = '511afb39-2031-4a08-ae6e-17766dfc1d0e';
+    public  $integration_id = '7483';
+
     public function jsonError($statusCode = 500, $message = "Unexpected Error")
     {
 

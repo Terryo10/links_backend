@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Expertise;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class JobsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,15 +15,16 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
-        $experties = Expertise::where('id','=', $this->experties_id)->first();
+        $experties = Expertise::where('id','=', $this->expertises_id)->first();
 
-        return   [
-            'id' => $this->id,
-            'name' => $this->name,
-            'email'=> $this->email,
-            'cv_file'=>$this->cvFile,
-            'expertise'=>$experties,
-            'subscription'=>$this->subscription,
+        return [
+            'id'=> $this->id,
+            'name'=>$this->name,
+            'type'=>$this->type,
+            'expertise'=> $experties,
+            'organisation'=>$this->organisation,
+            'description'=>$this->description,
+            'tasks'=>$this->tasks,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
