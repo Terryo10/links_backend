@@ -32,8 +32,10 @@ Route::get('get_user_data',[UserDataController::class,'userData'] )->middleware(
 Route::resource('cv_file', PDFController::class)->middleware('auth:api');
 Route::get('get_expertise',[ExpertiseController::class,'getExpertiseList'])->middleware('auth:api');
 Route::post('update_user_expertise',[ExpertiseController::class ,'selectExpertise'])->middleware('auth:api');
-Route::get('get_jobs', [JobsController::class,'getJobs'])->middleware('auth:api');
+    Route::get('get_jobs', [JobsController::class,'getJobs'])->middleware('auth:api');
 Route::post('make_payment', [SubscriptionsController::class, 'makeSubscription'])->middleware('auth:api');
 Route::get('confirm_payment/{id}', [SubscriptionsController::class, 'checkPayment'])->middleware('auth:api');
 Route::get('get_price',[SubscriptionsController::class,'getPriceControl']);
+Route::get('make_application/{id}',[JobsController::class,'applyJob'])->middleware('auth:api');
+Route::get('applied_jobs', [JobsController::class, 'getAppliedJobs'])->middleware('auth:api');
 

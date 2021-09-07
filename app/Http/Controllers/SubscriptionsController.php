@@ -83,11 +83,11 @@ class SubscriptionsController extends Controller
 
         $transaction = Orders::find($id);
 
-        if (!$transaction->poll_url){
+        if ($transaction->poll_url == null){
             return response()->json([
                 'success' => false,
-                'message' => 'Status can not be changed'
-            ]);
+                'message' => 'payment error'
+            ], 217);
         }
 
         $status = $paynow->pollTransaction($transaction->poll_url);
@@ -110,7 +110,7 @@ class SubscriptionsController extends Controller
                         $subscription->expires_at = $subscription->expires_at->addMonth(1);
                         $subscription->save();
                         $transaction->status = $response['status'];
-                        $transaction->used = true;
+                        $transaction->used = 1;
                         $transaction->save();
                         return response()->json([
                             'success' => true,
@@ -124,7 +124,7 @@ class SubscriptionsController extends Controller
                         $subscription->expires_at = $carbon;
                         $subscription->save();
                         $transaction->status = $response['status'];
-                        $transaction->used = true;
+                        $transaction->used = 1;
                         $transaction->save();
                         return response()->json([
                             'success' => true,
@@ -140,7 +140,7 @@ class SubscriptionsController extends Controller
                     $subscription->expires_at = $carbon;
                     $subscription->save();
                     $transaction->status = $response['status'];
-                    $transaction->used = true;
+                    $transaction->used = 1;
                     $transaction->save();
                     return response()->json([
                         'success' => true,

@@ -58,4 +58,8 @@ class User extends Authenticatable
     public function subscription(){
         return $this->hasOne(Subscriptions::class);
     }
+
+    public function jobApplication(){
+        return $this->hasMany(JobApplications::class);
+    }
 }
