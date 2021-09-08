@@ -88,7 +88,10 @@ class PDFController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Auth::user();
+        $cvFile = $user->cvFile;
+        return $cvFile;
+
     }
 
     /**

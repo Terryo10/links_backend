@@ -42,7 +42,9 @@ class SubscriptionsController extends Controller
             $price_control = PriceControl::all();
             $activePrice = $price_control[0];
             $payment = $paynow->createPayment('ORDER' . 'Ordernumber', $user->email);
+
             $payment->add('Price', $activePrice->subscription_price);
+
             $response = $paynow->sendMobile($payment, $request->input('phone_number'), $request->input('method'));
 
             if ($response->success) {

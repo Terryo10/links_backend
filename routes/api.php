@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\ExpertiseController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PDFController;
@@ -27,12 +28,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register', [RegisterController::class, 'register']);
 Route::post('login', [LoginController::class, 'login']);
+Route::post('change_password',[ChangePasswordController::class,'changePassword'])->middleware('auth:api');
 
 Route::get('get_user_data',[UserDataController::class,'userData'] )->middleware('auth:api');
 Route::resource('cv_file', PDFController::class)->middleware('auth:api');
 Route::get('get_expertise',[ExpertiseController::class,'getExpertiseList'])->middleware('auth:api');
 Route::post('update_user_expertise',[ExpertiseController::class ,'selectExpertise'])->middleware('auth:api');
-    Route::get('get_jobs', [JobsController::class,'getJobs'])->middleware('auth:api');
+Route::post('change_expertise',[ExpertiseController::class ,'updateExpertise'])->middleware('auth:api');
+Route::get('get_jobs', [JobsController::class,'getJobs'])->middleware('auth:api');
 Route::post('make_payment', [SubscriptionsController::class, 'makeSubscription'])->middleware('auth:api');
 Route::get('confirm_payment/{id}', [SubscriptionsController::class, 'checkPayment'])->middleware('auth:api');
 Route::get('get_price',[SubscriptionsController::class,'getPriceControl']);

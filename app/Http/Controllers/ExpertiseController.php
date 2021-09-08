@@ -39,4 +39,27 @@ class ExpertiseController extends Controller
             'expertise' => $expertise,
         ]);
     }
+
+    public function updateExpertise(Request $request){
+        $request->validate([
+            'expertise_id' => 'required'
+        ]);
+
+        try{
+            $user = Auth::user();
+            $user->experties_id = $request->input('expertise_id') ;
+            $user->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Expertise Updated Successfully',
+            ]);
+        }catch(Exception $exception){
+            return response()->json([
+                'success' => false,
+                'message' => $exception,
+            ], 217);
+
+        }
+    }
 }
