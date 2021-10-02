@@ -16,7 +16,7 @@ class ApplicationResource extends JsonResource
     {
         return [
             'job'=> $this->job,
-            'user'=> $this->user,
+//            'user'=> $this->user,
         ];
     }
 }

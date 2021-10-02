@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Expertise;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\Auth;
 use PHPUnit\Exception;
 
 class ExpertiseController extends Controller

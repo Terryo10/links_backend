@@ -12,7 +12,8 @@
         "laravel/framework": "^8.54",
         "laravel/passport": "^10.1",
         "laravel/tinker": "^2.5",
-        "paynow/php-sdk": "^1.0"
+        "paynow/php-sdk": "^1.0",
+        "rogervila/laravel-legacy-ui": "^3.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

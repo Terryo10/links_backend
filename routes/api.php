@@ -7,8 +7,8 @@ use App\Http\Controllers\PDFController;
 use App\Http\Controllers\SubscriptionsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
+    use App\Http\Controllers\RegisterController;
+    use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserDataController;
 
 /*
@@ -41,4 +41,5 @@ Route::get('confirm_payment/{id}', [SubscriptionsController::class, 'checkPaymen
 Route::get('get_price',[SubscriptionsController::class,'getPriceControl']);
 Route::get('make_application/{id}',[JobsController::class,'applyJob'])->middleware('auth:api');
 Route::get('applied_jobs', [JobsController::class, 'getAppliedJobs'])->middleware('auth:api');
+Route::get('user_applied_jobs', [JobsController::class, 'userAppliedJobs'])->middleware('auth:api');
 

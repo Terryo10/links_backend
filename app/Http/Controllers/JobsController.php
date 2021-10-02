@@ -59,12 +59,20 @@ class JobsController extends Controller
     public function getAppliedJobs(){
         $user = Auth::user();
         $appliedJobs = JobApplications::where('user_id', '=', $user->id)->get();
+        $empty = array();
+        foreach ($appliedJobs as $jobs){
+            $k = Job::find($jobs->job_id);
+            array_push($empty, $k);
+        }
 
-        $jobResource =  ApplicationResource::collection($appliedJobs);
+
+        $jobsCollection = JobsResource::collection($empty);
 
         return response()->json([
             'success' => true,
-            'applications' =>$jobResource,
+            'jobs' =>$jobsCollection,
         ]);
     }
+
+
 }

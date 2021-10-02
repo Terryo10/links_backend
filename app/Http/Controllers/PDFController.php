@@ -39,7 +39,7 @@ class PDFController extends Controller
         // store user pdf
         $user = Auth::user();
         $request->validate([
-            'file' => 'required|mimes:pdf|max:4048',
+            'file' => 'required|mimes:pdf|max:10048',
         ]);
         try{
             if($user->cvFile != null ){
