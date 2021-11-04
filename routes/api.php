@@ -5,6 +5,8 @@ use App\Http\Controllers\ExpertiseController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\SubscriptionsController;
+use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\WishListController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\RegisterController;
@@ -42,4 +44,9 @@ Route::get('get_price',[SubscriptionsController::class,'getPriceControl']);
 Route::get('make_application/{id}',[JobsController::class,'applyJob'])->middleware('auth:api');
 Route::get('applied_jobs', [JobsController::class, 'getAppliedJobs'])->middleware('auth:api');
 Route::get('user_applied_jobs', [JobsController::class, 'userAppliedJobs'])->middleware('auth:api');
+Route::post('create_profile', [UserProfileController::class, 'createProfile'])->middleware('auth:api');
+Route::get('delete_profile', [UserProfileController::class, 'deleteProfile'])->middleware('auth:api');
+Route::post('add_to_wishlist', [WishListController::class, 'addToWishList'])->middleware('auth:api');
+Route::post('remove_from_wishlist', [WishListController::class, 'removeWishlist'])->middleware('auth:api');
+
 

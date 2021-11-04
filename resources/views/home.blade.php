@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['pageSlug' => 'dashboard', 'page' => 'Dashboard', 'section' => '', ])
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Welcome to Links Portal From here you can preview job applications to your post and download bulk resumes') }}
                 </div>
             </div>
         </div>

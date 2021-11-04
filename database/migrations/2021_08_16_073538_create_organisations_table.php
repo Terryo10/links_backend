@@ -19,6 +19,8 @@ class CreateOrganisationsTable extends Migration
             $table->string('Location');
             $table->string('image_path');
             $table->string('number_of_employees');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

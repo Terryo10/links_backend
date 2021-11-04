@@ -62,4 +62,12 @@ class User extends Authenticatable
     public function jobApplication(){
         return $this->hasMany(JobApplications::class);
     }
+
+    public function profile(){
+        return $this->hasOne(UserProfile::class);
+    }
+
+    Public function wishList(){
+        return $this->hasMany(WishList::class);
+    }
 }

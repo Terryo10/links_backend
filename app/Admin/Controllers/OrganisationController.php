@@ -31,6 +31,7 @@ class OrganisationController extends AdminController
         $grid->column('Location', __('Location'));
         $grid->column('image_path', __('Image path'));
         $grid->column('number_of_employees', __('Number of employees'));
+        $grid->column('user_id', __('User id'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -52,6 +53,7 @@ class OrganisationController extends AdminController
         $show->field('Location', __('Location'));
         $show->field('image_path', __('Image path'));
         $show->field('number_of_employees', __('Number of employees'));
+        $show->field('user_id', __('User id'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -67,10 +69,11 @@ class OrganisationController extends AdminController
     {
         $form = new Form(new Organisation());
 
-        $form->text('name', __('Name'))->required();
-        $form->text('Location', __('Location'))->required();
-        $form->image('image_path', __('Image path'))->required();
-        $form->text('number_of_employees', __('Number of employees'))->required();
+        $form->text('name', __('Name'));
+        $form->text('Location', __('Location'));
+        $form->text('image_path', __('Image path'));
+        $form->text('number_of_employees', __('Number of employees'));
+        $form->number('user_id', __('User id'));
 
         return $form;
     }

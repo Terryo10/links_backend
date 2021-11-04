@@ -16,4 +16,6 @@ class JobApplications extends Model
         return $this->belongsTo(Job::class);
     }
 
+
+
 }

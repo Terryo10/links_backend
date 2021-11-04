@@ -25,6 +25,7 @@ class JobsResource extends JsonResource
             'organisation'=>$this->organisation,
             'description'=>$this->description,
             'tasks'=>$this->tasks,
+            'profile'=>$this->profile,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
