@@ -8,11 +8,16 @@
 
                     <div class="card-header">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-4 text-center">
+                               <img src="/storage/organisation_logos/{{$organisation->image_path}}" style="height: 50px;">
+                            </div>
+                            <div class="col-4 text-center">
                         {{ $organisation->name .__(' Organisation Page')}}
                             </div>
                             <div class="col-4 text-right">
-                                <button>Post A Job For this Organisation</button>
+                                <a href="/create_for/{{$organisation->id}}">
+                                <button class="btn btn-sm btn-primary">Post A Job For this Organisation</button>
+                                </a>
                             </div>
                             </div>
 

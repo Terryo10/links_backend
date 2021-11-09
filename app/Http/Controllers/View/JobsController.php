@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\view;
 
 use App\Http\Controllers\Controller;
+use App\Models\Expertise;
 use App\Models\Job;
 use App\Models\Organisation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobsController extends Controller
 {
@@ -25,9 +27,16 @@ class JobsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $user = Auth::user();
+        $organisation = Organisation::find($id);
+        if($user->id != $organisation->user_id){
+            return redirect()->back()->withStatus('UnAuthorised');
+        }
+
+        $expertise = Expertise::all();
+        return view('jobs.create')->with('expertise', $expertise)->with('organisation',$organisation);
     }
 
     /**
@@ -38,7 +47,23 @@ class JobsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'organisation_id' => 'required',
+            'name' => 'required',
+
+
+        ]);
+        $user = Auth::user();
+        $organisation = Organisation::find($request->input('organisation_id'));
+        if($user->id != $organisation->user_id){
+            return redirect()->back()->withStatus('UnAuthorised');
+        }
+        $job = new Job();
+        $job->name = $request->input('name');
+        $job->description = $request->input('description');
+        $job->expertises_id = $request->input('expertises_id');
+        $job
+
     }
 
     /**

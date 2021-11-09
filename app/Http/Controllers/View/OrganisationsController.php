@@ -59,6 +59,8 @@ class OrganisationsController extends Controller
         $extension = $request->image->getCLientOriginalExtension();
         //Stored name
         $fileNameToStore = $filename . '_' . time() . '_.' . $extension;
+        //model->
+        $request->file('image')->storeAs('public/organisation_logos', $fileNameToStore);
         $organisation = new Organisation();
         $organisation->name = $request->input('name');
         $organisation->location = $request->input('location');
@@ -80,6 +82,9 @@ class OrganisationsController extends Controller
     {
 
         $organisation = Organisation::find($id);
+        if($organisation == null){
+            return redirect()->back()->withStatus('oops something happened');
+        }
         $jobs = Job::where('organisation_id','=',$organisation->id)->get();
         return view('organisations.show ')
             ->with('organisation', $organisation)

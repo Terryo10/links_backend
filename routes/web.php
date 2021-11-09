@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\View\JobsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,5 @@ Route::post('email/resend', [App\Http\Controllers\Auth\VerificationController::c
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('organisations',App\Http\Controllers\View\OrganisationsController::class)->middleware('auth');
+Route::resource('jobs',JobsController::class)->middleware('auth');
+Route::get('create_for/{id}',[JobsController::class, 'create'])->name('create_job');
