@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class JobsController extends Controller
 {
+    public function _construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -47,6 +50,7 @@ class JobsController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'organisation_id' => 'required',
             'name' => 'required',
@@ -60,9 +64,14 @@ class JobsController extends Controller
         }
         $job = new Job();
         $job->name = $request->input('name');
+        $job->type = $request->input('type');
         $job->description = $request->input('description');
+        $job->tasks = $request->input('tasks');
         $job->expertises_id = $request->input('expertises_id');
-        $job
+        $job->organisation_id = $request->input('organisation_id');
+        $job->save();
+        $route = "organisations/";
+        return redirect()->to($route.$organisation->id);
 
     }
 
@@ -74,7 +83,9 @@ class JobsController extends Controller
      */
     public function show($id)
     {
-        //
+        $job = Job::find($id);
+        $expertise = Expertise::find($job->expertises_id);
+        return view('jobs.show')->with('job', $job)->with('expertise', $expertise);
     }
 
     /**

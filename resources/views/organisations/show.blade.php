@@ -31,8 +31,8 @@
                             <div class="card-body">
                                 <table class="table">
                                     <thead>
-                                    <th>name</th>
-                                    <th>for</th>
+                                    <th>Created On</th>
+                                    <th>Job Name</th>
                                     <th>Action</th>
 
                                     </thead>
@@ -41,7 +41,7 @@
                                         <tr>
                                             <td>{{ $job->created_at->format('l jS \\of F Y h:i:s A') }}</td>
                                             <td>{{ $job->name}}</td>
-                                            <td><a href="/" class="btn btn-sm btn-primary">
+                                            <td><a href="/jobs/{{$job->id}}" class="btn btn-sm btn-primary">
                                                     preview job
                                                 </a></td>
                                         </tr>
