@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\View\JobsController;
+use App\Http\Controllers\View\ApplicationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('organisations',App\Http\Controllers\View\OrganisationsController::class)->middleware('auth');
 Route::resource('jobs',JobsController::class)->middleware('auth');
 Route::get('create_for/{id}',[JobsController::class, 'create'])->name('create_job')->middleware('auth');
+Route::get('job_applications/{id}',[ApplicationsController::class, 'applications'])->name('job_applications')->middleware('auth');

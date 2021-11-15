@@ -33,6 +33,7 @@
                                     <thead>
                                     <th>Created On</th>
                                     <th>Job Name</th>
+                                    <th>Number of Applicants</th>
                                     <th>Action</th>
 
                                     </thead>
@@ -41,6 +42,7 @@
                                         <tr>
                                             <td>{{ $job->created_at->format('l jS \\of F Y h:i:s A') }}</td>
                                             <td>{{ $job->name}}</td>
+                                            <td>{{$job->jobApplications->count()}}</td>
                                             <td><a href="/jobs/{{$job->id}}" class="btn btn-sm btn-primary">
                                                     preview job
                                                 </a></td>

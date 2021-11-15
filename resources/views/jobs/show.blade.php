@@ -14,6 +14,10 @@
                     {{ $job->name .__(' Page')}}
                         </div>
                         <div class="col-4 text-right">
+                            <a href="/job_applications/{{$job->id}}">
+                            <button class="btn btn-sm btn-primary">View Applications For this Job</button>
+                        </div>
+                        <div class="col-4 text-right">
 
                             <button class="btn btn-sm btn-primary">Edit Job</button>
 

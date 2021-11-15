@@ -14,12 +14,7 @@
                 </a>
             </li>
 
-            <li @if ($pageSlug == 'products') class="active " @endif>
-                <a href="/stock/products/">
-                    <i class="tim-icons icon-delivery-fast"></i>
-                    <p>My Jobs</p>
-                </a>
-            </li>
+
 
             <li>
                 <a data-toggle="collapse" href="#transactions" {{ $section == 'transactions' ? 'aria-expanded=true' : '' }}>
@@ -37,17 +32,12 @@
 {{--                            </a>--}}
 {{--                        </li>--}}
                         <li @if ($pageSlug == 'cart') class="active " @endif>
-                            <a href="/cart/">
-                                <i class="tim-icons icon-cart"></i>
-                                <p>Job Application</p>
-                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                                <button type="submit">Logout</button>
+                            </form>
                         </li>
-                        <li @if ($pageSlug == 'stockhistory') class="active " @endif>
-                            <a href="/stock_history/">
-                                <i class="tim-icons icon-bullet-list-67"></i>
-                                <p>Download Bulk Resumes</p>
-                            </a>
-                        </li>
+
 
 
                     </ul>

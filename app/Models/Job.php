@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Job extends Model
 {
-    protected $with = [ 'organisation'];
+    protected $with = [ 'organisation', 'jobApplications'];
     use HasFactory;
-
 
     public function organisation(){
         return $this->belongsTo(Organisation::class);
+    }
+
+    public function jobApplications(){
+        return $this->hasMany(JobApplications::class);
     }
 }
