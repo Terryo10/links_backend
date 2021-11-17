@@ -12,11 +12,7 @@
                             <div class="col-4 text-center">
                                 {{ __(' Applications Page') }}
                             </div>
-                            <div class="col-4 text-right">
-                                <a href="">
-                                    <button class="btn btn-sm btn-primary">Download all cvs for this job</button>
-                                </a>
-                            </div>
+
                         </div>
 
                         <div class="card-body">

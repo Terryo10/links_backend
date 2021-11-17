@@ -26,7 +26,6 @@
         @include('layouts.navbars.nav2')
         <div class="main-panel">
             @include('layouts.navbars.navbar')
-
             <div class="content">
                 @yield('content')
             </div>
