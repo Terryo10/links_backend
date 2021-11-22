@@ -18,7 +18,7 @@ class JobsController extends Controller
 
         try{
             $user = Auth::user();
-            $jobs= Job::where('expertises_id', '=', $user->experties_id)->get();
+            $jobs= Job::where('expertises_id', '=', $user->experties_id)->orderBy('created_at', 'desc')->get();
             $jobsCollection = JobsResource::collection($jobs);
             return response()->json([
                 'success' => true,
