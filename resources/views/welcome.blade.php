@@ -39,7 +39,7 @@
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <h1 style="color: #ffffff">Links Portal</h1>
         <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-             <img src="/links-03.png" style="height: 50px;">
+             <img src="/logof.png" style="height: 90px;">
 
         </div>
 

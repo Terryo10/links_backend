@@ -50,9 +50,16 @@
 
                                                             <div class="form-group{{ $errors->has('product_id') ? ' has-danger' : '' }}">
                                                                 <label class="form-control-label" for="input-qty">Select here to upload organisation Logo</label>
-                                                                <input name="image" type="file" class="form-control" required/>                                                                @include('alerts.feedback', ['field' => 'image_path'])
+                                                                <input name="image" type="file" class="custom-file-upload" required/>                                                               @include('alerts.feedback', ['field' => 'image_path'])
                                                             </div>
-
+<style>
+    .custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+</style>
                                                             <div class="text-center">
                                                                 <button type="submit" class="btn btn-success mt-4">Create</button>
                                                             </div>
