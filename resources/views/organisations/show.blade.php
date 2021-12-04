@@ -14,12 +14,14 @@
                             <div class="col-4 text-center">
                         {{ $organisation->name .__(' Organisation Page')}}
                             </div>
-                            <div class="col-4 text-right">
+
+                            </div>
+                            <div class="col-4 text-center">
                                 <a href="/create_for/{{$organisation->id}}">
                                 <button class="btn btn-sm btn-primary">Post A Job For this Organisation</button>
                                 </a>
                             </div>
-                            </div>
+                    </div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -29,6 +31,7 @@
                         @endif
 
                             <div class="card-body">
+                                <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                     <th>Created On</th>
@@ -50,6 +53,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                </div>
                     </div>
                 </div>
             </div>

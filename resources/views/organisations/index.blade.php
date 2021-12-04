@@ -11,12 +11,11 @@
                             <div class="col-4 ">
                                 <p>you can preview your organisations here</p>
                             </div>
-                            <div class="col-4 text-center">
+                            <br>
 
-                            </div>
-                            <div class="col-4 text-right">
-                                <a href="organisations/create"><button class="btn btn-sm btn-primary">create a new organisation</button></a>
-                            </div>
+                        </div>
+                        <div class="col-8 text-center">
+                            <a href="organisations/create"><button class="btn btn-sm btn-primary">create a new organisation</button></a>
                         </div>
                     </div>
 
