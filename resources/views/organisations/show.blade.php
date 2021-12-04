@@ -9,7 +9,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-4 text-center">
-                               <img src="/storage/organisation_logos/{{$organisation->image_path}}" style="height: 50px;">
+                               <img src="/storage/organisation_logos/{{$organisation->image_path}}" style="height: 80px;">
                             </div>
                             <div class="col-4 text-center">
                         {{ $organisation->name .__(' Organisation Page')}}
