@@ -49,7 +49,7 @@ class OrganisationsController extends Controller
             'number_of_employees' => 'required',
             'location' => 'required',
             'name' => 'required',
-            'image'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:20240'
         ]);
 
         $filenameWithExt = $request->image->getClientOriginalName();

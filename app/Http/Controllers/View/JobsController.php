@@ -119,6 +119,10 @@ class JobsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // return 123;
+        $job = Job::find($id);
+        $pan = $job->organisation_id;
+        $job->delete();
+        return redirect('/organisations/'.$pan);
     }
 }

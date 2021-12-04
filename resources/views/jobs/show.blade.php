@@ -16,10 +16,17 @@
                         <div class="col-4 text-right">
                             <a href="/job_applications/{{$job->id}}">
                             <button class="btn btn-sm btn-primary">View Applications For this Job</button>
+                            </a>
                         </div>
                         <div class="col-4 text-right">
+                            <form method="POST" action="{{ route('jobs.destroy', [$job->id]) }}">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
 
-                            <button class="btn btn-sm btn-primary">Edit Job</button>
+                                <div class="form-group">
+                                    <button type="submit"  class="btn btn-sm btn-primary">Delete Job</button>
+                                </div>
+                            </form>
 
                         </div>
                         </div>

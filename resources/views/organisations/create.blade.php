@@ -17,10 +17,15 @@
 
 
                             <div>
-                                @include('alerts.success')
+
                             </div>
 
+
+
                             <div class="pl-lg-4">
+                                @include('alerts.success')
+
+
                                 <div  >
 
                                     <div class="container">
@@ -48,9 +53,9 @@
                                                                 @include('alerts.feedback', ['field' => 'number_of_employees'])
                                                             </div>
 
-                                                            <div class="form-group{{ $errors->has('product_id') ? ' has-danger' : '' }}">
+                                                            <div >
                                                                 <label class="form-control-label" for="input-qty">Select here to upload organisation Logo</label>
-                                                                <input name="image" type="file" class="custom-file-upload" required/>                                                               @include('alerts.feedback', ['field' => 'image_path'])
+                                                                <input name="image" type="file" required/>                                                               @include('alerts.feedback', ['field' => 'image_path'])
                                                             </div>
 <style>
     .custom-file-upload {
