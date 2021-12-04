@@ -13,12 +13,15 @@
                         <div class="col-4 text-center">
                     {{ $job->name .__(' Page')}}
                         </div>
-                        <div class="col-4 text-right">
+
+
+                        </div>
+                        <div class="text-center">
                             <a href="/job_applications/{{$job->id}}">
                             <button class="btn btn-sm btn-primary">View Applications For this Job</button>
                             </a>
                         </div>
-                        <div class="col-4 text-right">
+                        <div class=" text-center">
                             <form method="POST" action="{{ route('jobs.destroy', [$job->id]) }}">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
@@ -29,7 +32,7 @@
                             </form>
 
                         </div>
-                        </div>
+                </div>
 
                 <div class="card-body">
                     <p>
